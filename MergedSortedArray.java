@@ -17,31 +17,64 @@ import java.util.*;
        Scanner s= new Scanner (System.in);
       int n1=s.nextInt();
       int a[] = new int[n1];
-      for (int i=0;i<n1;i++)
+   int i,j,k;
+      for ( i=0;i<n1;i++)
       {
         a[i]=s.nextInt();
     }
    int n2=s.nextInt();
       int b[] = new int[n2];
-      for (int i=0;i<n2;i++)
+      for ( i=0;i<n2;i++)
       {
         b[i]=s.nextInt();
     }
-     int n3=n1+n2;
+   /*  int n3=n1+n2;
     int c[] = new int[n3];//int c[] =new int[n1+n2];
-   //int k=0;
-    for(int i=0;i<n1;i++)
+    //int k=0;
+     for(int i=0;i<n1;i++)
      {
         c[i]=a[i];//c[k]=a[i];
        //k++;
       }
-for(int i=0;i<n2;i++)
-{
+    for(int i=0;i<n2;i++)
+   {
             c[n1 + i] = b[i];//c[k]=b[i];
              //k++;
+    }
+    Arrays.sort(c);
+   */
+  int c[] =new int[n1+n2];
+  i=0;
+   j=0;
+   k=0;
+   while(i<n1 && j<n2)
+    {
+        if(a[i] <b[j])
+         {
+            c[k]=a[i];
+            i++;
+            k++;
+           }
+       else
+       {
+        c[k]=b[j];
+         j++;
+        k++;
+        }
 }
-Arrays.sort(c);
-    for(int i=0;i<n3;i++)//for(int i=0;i<k;i++)
+    while(i<n1)
+     {
+       c[k]=a[i];
+        i++;
+        k++;
+      }
+     while(j<n2)
+      {
+        c[k]=b[j];
+        j++;
+        k++;
+      }
+    for( i=0;i<k;i++)//for(int i=0;i<n3;i++)
 {
 System.out.print(c[i]+" ");
 }
